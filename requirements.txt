@@ -1,0 +1,9 @@
+discord.py
+hashlib
+random
+json
+os
+time
+asyncio
+
+
