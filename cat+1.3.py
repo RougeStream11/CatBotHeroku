@@ -439,8 +439,7 @@ async def status_change():
 async def on_ready():
 	print('cat working')
 	print ("" + client.user.name)
-	print ("ID: " + client.user.id)
-	print('Token: ' + TOKEN)
+	print ("ID: " + client.user.id
     
 @client.event
 async def on_message(message):
