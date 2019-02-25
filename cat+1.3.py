@@ -12,7 +12,6 @@ import hashlib
 
 client = commands.Bot(command_prefix = '%')
 client.remove_command('help')
-os.chdir(r'/mnt/sdcard')
 status  = ["Cat Bot V1.3", "Running on Pydroid", "Currently on " + format(len(client.servers)) + " servers", "Prefix is %"]
 
 players = {}
