@@ -9,9 +9,8 @@ import time
 import os
 import random
 import hashlib
-import async
 
-client = commands.Bot(command_prefix = '%')
+commands.Bot(command_prefix = '%')
 client.remove_command('help')
 status  = ["Cat Bot V1.3", "Running on Pydroid", "Currently on " + format(len(client.servers)) + " servers", "Prefix is %"]
 
