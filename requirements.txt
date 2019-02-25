@@ -1,3 +1,4 @@
+--upgrade setuptools
 discord.py
 hashlib
 random
