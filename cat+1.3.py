@@ -327,6 +327,19 @@ async def ping(ctx):
     await client.say(f'Responsed in {1000*diff.total_seconds():.1f}ms.')
 
 @client.command()
+async def nyan():
+	await client.say('▒▒▒▒▒▒▒▒█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█')
+	await client.say('▒▒▒▒▒▒▒█░▒▒▒▒▒▒▒▓▒▒▓▒▒▒▒▒▒▒░█')
+	await client.say('▒▒▒▒▒▒▒█░▒▒▓▒▒▒▒▒▒▒▒▒▄▄▒▓▒▒░█░▄▄')
+	await client.say('▒▒▄▀▀▄▄█░▒▒▒▒▒▒▓▒▒▒▒█░░▀▄▄▄▄▄▀░░█')
+	await client.say('▒▒█░░░░█░▒▒▒▒▒▒▒▒▒▒▒█░░░░░░░░░░░█')
+	await client.say('▒▒▒▀▀▄▄█░▒▒▒▒▓▒▒▒▓▒█░░░██░░░░██░░█')
+	await client.say('▒▒▒▒▒▒▒█░▒▓▒▒▒▒▓▒▒▒█░░░░░░░▀░░░░░█')
+	await client.say('▒▒▒▒▒▄▄█░▒▒▒▓▒▒▒▒▒▒▒█░░█▄▄█▄▄█░░█')
+	await client.say('▒▒▒▒█░░░█▄▄▄▄▄▄▄▄▄▄█░█▄▄▄▄▄▄▄▄▄█')
+	await client.say('▒▒▒▒█▄▄█░░█▄▄█░░░░░░█▄▄█░░█▄▄█')
+
+@client.command()
 async def echo(*args):
     output = ''
     for word in args:
