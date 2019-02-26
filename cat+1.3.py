@@ -271,44 +271,46 @@ async def on_message(message):
 	if message.content.startswith('hey'):
 		msg = 'hello {0.author.mention}'.format(message)
 		await client.send_message(message.channel, msg)
+	
+	#disabling leveling system because it cant edit users.json
+	
+	#with open('users.json', 'r') as f:
+		#users = json.load(f)
 		
-	with open('users.json', 'r') as f:
-		users = json.load(f)
+		#await update_data(users, message.author)
+		#await add_experience(users, message.author, 10)
+		#await level_up(users, message.author, message.channel)
 		
-		await update_data(users, message.author)
-		await add_experience(users, message.author, 10)
-		await level_up(users, message.author, message.channel)
+	#with open('users.json', 'w') as f:
+		#json.dump(users, f)
 		
-	with open('users.json', 'w') as f:
-		json.dump(users, f)
-		
-	with open('log.txt', 'a') as f:
-		server = message.server
-		channel = message.channel
-		author = message.author
-		content = message.content
-		f.write('{} {} {} {}'.format(server, channel, author, content))
-		f.write('\n')
+	#with open('log.txt', 'a') as f:
+		#server = message.server
+		#channel = message.channel
+		#author = message.author
+		#content = message.content
+		#f.write('{} {} {} {}'.format(server, channel, author, content))
+		#f.write('\n')
 	
 
-async def update_data(users, user):
-	if not user.id in users:
-		users[user.id] = {}
-		print(type(users))
-		users[user.id]['experience'] = 0
-		users[user.id]['level'] = 1
+#async def update_data(users, user):
+	#if not user.id in users:
+		#users[user.id] = {}
+		#print(type(users))
+		#users[user.id]['experience'] = 0
+		#users[user.id]['level'] = 1
 		
-async def add_experience(users, user, exp):
-	users[user.id]['experience'] += exp
+#async def add_experience(users, user, exp):
+	#users[user.id]['experience'] += exp
 
-async def level_up(users, user, channel):
-	experience = users[user.id]['experience']
-	lvl_start = users[user.id]['level']
-	lvl_end = int(experience ** (1/4))
+#async def level_up(users, user, channel):
+	#experience = users[user.id]['experience']
+	#lvl_start = users[user.id]['level']
+	#lvl_end = int(experience ** (1/4))
 	
-	if lvl_start < lvl_end:
-		await client.send_message(channel, '{} has leveled up to level {}'.format(user.mention, lvl_end))
-		users[user.id]['level'] = lvl_end
+	#if lvl_start < lvl_end:
+		#await client.send_message(channel, '{} has leveled up to level {}'.format(user.mention, lvl_end))
+		#users[user.id]['level'] = lvl_end
 	
 		
 		
@@ -688,20 +690,20 @@ async def userinfo(ctx, member: discord.Member):
 			
 
 
-@client.event
-async def on_member_join(member):
-		server = member.server
-		user = member
-		client.start_private_message(member)
-		await client.send_message(member, 'Welcome to {} {}'.format(server.name, user.mention))
+#@client.event
+#async def on_member_join(member):
+		#server = member.server
+		#user = member
+		#client.start_private_message(member)
+		#await client.send_message(member, 'Welcome to {} {}'.format(server.name, user.mention))
 
-		with open('users.json', 'r') as f:
-			users = json.load(f)
+		#with open('users.json', 'r') as f:
+			#users = json.load(f)
 		
-		await update_data(users, member)
+		#await update_data(users, member)
 		
-		with open('users.json', 'w') as f:
-			json.dump(users, f)
+		#with open('users.json', 'w') as f:
+			#json.dump(users, f)
 
 client.loop.create_task(status_change())						
 client.run(os.getenv('TOKEN'))
