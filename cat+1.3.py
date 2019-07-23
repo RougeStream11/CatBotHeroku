@@ -253,7 +253,7 @@ async def on_message(message):
 		
 	if "OOF" in message.content.upper():
 			print('sending reply, ( roblex )')
-			await client.send_message(message.channel, 'Roblex die
+			await client.send_message(message.channel, 'Roblex died')
 		
 	if "FOO" in message.content.upper():
 			print('Sending reply ( borlex )')
