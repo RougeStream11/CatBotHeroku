@@ -336,7 +336,7 @@ async def nyan():
 	await client.say('▒▒▒▒█░░░█▄▄▄▄▄▄▄▄▄▄█░█▄▄▄▄▄▄▄▄▄█')
 	await client.say('▒▒▒▒█▄▄█░░█▄▄█░░░░░░█▄▄█░░█▄▄█')
 
-@client.command(pass_context = True)
+@client.command()
 async def test(ctx):
 	id = {500984637104062474:"Truemlgpro", 502546223631433729:"gwandrew", 480809552204529665: "Rouge"} 
 	id2 = ctx.message.author.id
