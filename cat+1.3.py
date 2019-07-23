@@ -336,10 +336,10 @@ async def nyan():
 	await client.say('▒▒▒▒█░░░█▄▄▄▄▄▄▄▄▄▄█░█▄▄▄▄▄▄▄▄▄█')
 	await client.say('▒▒▒▒█▄▄█░░█▄▄█░░░░░░█▄▄█░░█▄▄█')
 
-@client.command(pass_context=True)
-async def test(message):
+@client.command()
+async def test(message, ctx):
 	id = [336180549192515585, 404373941373632513, 480809552204529665]
-	id2 = message.author.id
+	id2 = ctx.message.author.id
 	if id2 in id:
 		print('run command')
 		await client.say('allowed')
