@@ -687,10 +687,10 @@ async def userinfo(ctx, member: discord.Member):
 
 #@client.event
 #async def on_member_join(member):
-		server = member.server
-		user = member
-		client.start_private_message(member)
-		await client.send_message(member, 'Welcome to {} {}'.format(server.name, user.mention))
+	server = member.server
+	user = member
+	client.start_private_message(member)
+	await client.send_message(member, 'Welcome to {} {}'.format(server.name, user.mention))
 
 		#with open('users.json', 'r') as f:
 			#users = json.load(f)
