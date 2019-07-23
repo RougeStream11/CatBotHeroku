@@ -340,7 +340,7 @@ async def nyan():
 async def test(ctx):
 	id = [336180549192515585, 404373941373632513, 480809552204529665]
 	id2 = ctx.message.author.id
-	if id2 in id:
+	if id2 == id:
 		print('run command')
 		await client.say('allowed')
 	else:
