@@ -253,12 +253,7 @@ async def on_message(message):
 		
 	if "OOF" in message.content.upper():
 			print('sending reply, ( roblex )')
-			await client.send_message(message.channel, 'Roblex died')
-
-		
-	if message.content.upper() == "INFO":
-		print("Sending reply ( Info ) ")
-		await client.send_message(message.channel, "Made by rouge with Atom And notepad++ with help of GW Andrew#8744 TrueMLGPro#9247 and Leterax#6932 And ruined by Arojam123Kappa#2630 spam this guy and insult him for ruining hard work")
+			await client.send_message(message.channel, 'Roblex die
 		
 	if "FOO" in message.content.upper():
 			print('Sending reply ( borlex )')
@@ -356,7 +351,7 @@ async def spa(*args):
 		output += word
 		output += ' '
 		while True:
-			await client.say(output)
+			await client.say(outpuot)
 
 @client.command()
 async def md5(*args):
