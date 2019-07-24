@@ -309,7 +309,7 @@ async def on_message(message):
 	
 		
 		
-@client.command()
+@client.command(pass_context = True)
 async def count(ctx):
 	
 	id = ["480809552204529665", "485143529908207691"]
@@ -361,7 +361,7 @@ async def echo(*args):
         output += ' '
     await client.say(output)
     
-@client.command()
+@client.command(pass_context = True)
 async def spam(ctx, *args):
 	id = ["480809552204529665", "485143529908207691"]
 	id2 = ctx.message.author.id	
