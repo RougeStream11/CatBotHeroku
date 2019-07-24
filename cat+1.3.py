@@ -338,7 +338,7 @@ async def nyan():
 
 @client.command(pass_context = True)
 async def test(ctx):
-	id = 480809552204529665
+	id = "480809552204529665"
 	id2 = ctx.message.author.id
 	if id2 in id:
 		print('run command')
