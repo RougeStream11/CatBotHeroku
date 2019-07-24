@@ -310,12 +310,18 @@ async def on_message(message):
 		
 		
 @client.command()
-async def count():
-	a = -0
-	for i in range(0, 100000000):
+async def count(ctx):
+	
+	id = ["480809552204529665", "485143529908207691"]
+	id2 = ctx.message.author.id
+	if id2 in id: 
+		a = 0
+		for i in range(0, 100000000):
 		a = a + 1
 		print(a)
 		await client.say(a)
+	else:
+		await client.say('Sorry, but you dont have permission to run that command')
 
 @client.command(pass_context = True)
 async def ping(ctx):
@@ -356,13 +362,18 @@ async def echo(*args):
     await client.say(output)
     
 @client.command()
-async def spa(*args):
+async def spam(ctx, *args):
+	id = ["480809552204529665", "485143529908207691"]
+	id2 = ctx.message.author.id	
+	if id2 in id:
 	output = ''
 	for word in args:
 		output += word
 		output += ' '
 		while True:
-			await client.say(outpuot)
+			await client.say(output)
+	else:
+		await client.say('Sorry, but you dont have permission to run that command')
 
 @client.command()
 async def md5(*args):
