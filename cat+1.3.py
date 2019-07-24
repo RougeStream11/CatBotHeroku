@@ -317,9 +317,9 @@ async def count(ctx):
 	if id2 in id: 
 		a = 0
 		for i in range(0, 100000000):
-		a = a + 1
-		print(a)
-		await client.say(a)
+			a = a + 1
+			print(a)
+			await client.say(a)
 	else:
 		await client.say('Sorry, but you dont have permission to run that command')
 
