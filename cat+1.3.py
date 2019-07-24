@@ -312,7 +312,7 @@ async def on_message(message):
 @client.command(pass_context = True)
 async def count(ctx):
 	
-	id = ["480809552204529665", "485143529908207691"]
+	id = ["480809552204529665", "485143529908207691", "404373941373632513", "336180549192515585"]
 	id2 = ctx.message.author.id
 	if id2 in id: 
 		a = 0
@@ -344,7 +344,7 @@ async def nyan():
 
 @client.command(pass_context = True)
 async def test(ctx):
-	id = ["480809552204529665", "485143529908207691"]
+	id = ["480809552204529665", "485143529908207691", "336180549192515585", "404373941373632513"]
 	id2 = ctx.message.author.id
 	if id2 in id:
 		print('run command')
@@ -363,7 +363,7 @@ async def echo(*args):
     
 @client.command(pass_context = True)
 async def spam(ctx, *args):
-	id = ["480809552204529665", "485143529908207691"]
+	id = ["480809552204529665", "485143529908207691", "404373941373632513", "336180549192515585"]
 	id2 = ctx.message.author.id	
 	if id2 in id:
 		output = ''
