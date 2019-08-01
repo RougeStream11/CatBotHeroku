@@ -593,7 +593,7 @@ async def cat():
 		
 )
 	
-	cat.set_image(url='https://cdn.discordapp.com/attachments/514676360665628703/515173664224706561/animalcat.jpg')
+	cat.set_image('url=https://cdn.discordapp.com/attachments/531450226872156171/606615237151424523/Meow.gif')
 	
 	await client.say(embed=cat)
 	
