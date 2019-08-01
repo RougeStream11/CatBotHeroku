@@ -707,8 +707,8 @@ async def userinfo(ctx, member: discord.Member):
 			
 
 
-#@client.event
-#async def on_member_join(member):
+@client.event
+async def on_member_join(member):
 	server = member.server
 	user = member
 	client.start_private_message(member)
