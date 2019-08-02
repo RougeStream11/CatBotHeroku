@@ -593,7 +593,7 @@ async def cat():
 	colour = discord.Colour.blue()
 		
 )
-	url = requests.get('thecatapi.com/api/images/get?format=src&type=png')
+	url = requests.get('http://thecatapi.com/api/images/get?format=src&type=png')
 	cat.set_image(url)
 	
 	await client.say(embed=cat)
