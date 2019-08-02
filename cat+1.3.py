@@ -9,6 +9,7 @@ import time
 import os
 import random
 import hashlib
+import requests
 
 client = commands.Bot(command_prefix = '%')
 client.remove_command('help')
@@ -592,7 +593,13 @@ async def cat():
 	colour = discord.Colour.blue()
 		
 )
-	cat.set_image(url = 'https://thecatapi.com/api/images/get?format=src&type=png')
+
+
+	js = requests.get('https://api.thecatapi.com/v1/images/search')
+	read = js.json()
+
+	caturl = read[0]['url']
+	cat.set_image(url = caturl)
 	
 	await client.say(embed=cat)
 	
