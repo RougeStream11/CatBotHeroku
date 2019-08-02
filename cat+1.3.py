@@ -9,6 +9,7 @@ import time
 import os
 import random
 import hashlib
+import requests
 
 client = commands.Bot(command_prefix = '%')
 client.remove_command('help')
