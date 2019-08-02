@@ -13,7 +13,7 @@ import requests
 
 client = commands.Bot(command_prefix = '%')
 client.remove_command('help')
-status  = ["Cat Bot V1.3", "Running on heroku", "Currently on " + format(len(client.servers)) + " servers", "Prefix is %"]
+status  = ["Cat Bot V1.3", "Running on heroku", "Prefix is %"]
 
 players = {}
 
