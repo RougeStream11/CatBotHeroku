@@ -448,6 +448,93 @@ async def clear(ctx, amount=5):
     await client.delete_messages(messages);
     await client.say('messages were deleted')
 
+@client.command(pass_context=True)
+def cat_decrypt(*args):
+	output = ''
+	for word in args:
+		output += word
+		output += ' '	
+		trans = ""
+		text = output
+		for char in text:
+			if char  in "@":
+				trans = trans + "a"
+			if char in ";":
+				trans = trans + "b"
+			if char in "\'":
+				trans = trans + "c"
+			if char in "$":
+				trans = trans + "d"
+			if  char in "3":
+				trans = trans + "e"
+			if char in "_":
+				trans = trans + "f"
+			if char in "&":
+				trans = trans + "g"
+			if char in "-":
+				trans = trans + "h"
+			if char in "8":
+				trans = trans + "i"
+			if char in "+":
+				trans = trans + "j"
+			if char in "(":
+				trans = trans + "k"
+			if char in ")":
+				trans = trans + "l"
+			if char in "?":
+				trans = trans + "m"
+			if char in "!":
+				trans = trans + "n"
+			if  char in "9":
+				trans = trans + "0"
+			if char in "0":
+				trans = trans + "p"
+			if char in "4":
+				trans = trans + "r"
+			if char in "#":
+				trans = trans + "s"
+			if char in "5":
+				trans = trans + "t"
+			if char in "7":
+				trans = trans + "u"
+			if char in ":":
+				trans = trans + "v"
+			if char in "*":
+				trans = trans + "z"
+			if char in "1":
+				trans = trans + "q"
+			if char in "2":
+				trans = trans + "w"
+			if char in "6":
+				trans = trans + "y"
+			if char in "~":
+				trans = trans + "1"
+			if char in "`":
+				trans = trans + "2"
+			if char in "|":
+				trans = trans + "3"
+			if char in "•":
+				trans = trans + "4"
+			if char in "√":
+				trans = trans + "5"
+			if char in "π":
+				trans = trans + "6"
+			if char in "÷":
+				trans = trans + "7"
+			if char in "×":
+				trans = trans + "8"
+			if char in "¶":
+				trans = trans + "9"
+			if char in "∆":
+				trans = trans + "0"
+			if char in " ":
+				trans = trans + " "
+		print(trans)
+		return trans
+		await client.say(trans)
+
+		
+	 
 
 @client.command(pass_context=True)
 async def help(ctx):
