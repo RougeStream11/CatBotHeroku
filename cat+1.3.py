@@ -530,8 +530,7 @@ def cat_decrypt(*args):
 			if char in " ":
 				trans = trans + " "
 		print(trans)
-	 	await client.say(trans)
-		return trans
+		await client.say(trans)
 
 		
 	 
