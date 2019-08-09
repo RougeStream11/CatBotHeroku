@@ -532,7 +532,89 @@ async def cat_decrypt(ctx, *args):
 		print(trans)
 		await client.say(trans)
 
-		
+@client.command(pass_context=True)
+async def cat_encrypt(*args):
+	output = ''
+	for word in args:
+		output += word
+		output += ' '	
+		trans = ""
+		text = output
+		for char in text:
+			if char  in "aA":
+				trans = trans + "@"
+			if char in "bB":
+				trans = trans + ";"
+			if char in "cC":
+				trans = trans + "\'"
+			if char in "dD":
+				trans = trans + "$"
+			if  char in "eE":
+				trans = trans + "3"
+			if char in "fF":
+				trans = trans + "_"
+			if char in "gG":
+				trans = trans + "&"
+			if char in "hH":
+				trans = trans + "-"
+			if char in "iI":
+				trans = trans + "8"
+			if char in "jJ":
+				trans = trans + "+"
+			if char in "kK":
+				trans = trans + "("
+			if char in "lL":
+				trans = trans + ")"
+			if char in "mM":
+				trans = trans + "?"
+			if char in "nN":
+				trans = trans + "!"
+			if  char in "oO":
+				trans = trans + "9"
+			if char in "pP":
+				trans = trans + "0"
+			if char in "rR":
+				trans = trans + "4"
+			if char in "sS":
+				trans = trans + "#"
+			if char in "tT":
+				trans = trans + "5"
+			if char in "uU":
+				trans = trans + "7"
+			if char in "vV":
+				trans = trans + ":"
+			if char in "zZ":
+				trans = trans + "*"
+			if char in "qQ":
+				trans = trans + "1"
+			if char in "wW":
+				trans = trans + "2"
+			if char in "yY":
+				trans = trans + "6"
+			if char in "1":
+				trans = trans + "~"
+			if char in "2":
+				trans = trans + "`"
+			if char in "3":
+				trans = trans + "|"
+			if char in "4":
+				trans = trans + "•"
+			if char in "5":
+				trans = trans + "√"
+			if char in "6":
+				trans = trans + "π"
+			if char in "7":
+				trans = trans + "÷"
+			if char in "8":
+				trans = trans + "×"
+			if char in "9":
+				trans = trans + "¶"
+			if char in "0":
+				trans = trans + "∆"
+			if char in " ":
+				trans = trans + " "
+		print(trans)
+		await client.say(trans)
 	 
 
 @client.command(pass_context=True)
