@@ -533,7 +533,7 @@ async def cat_decrypt(ctx, *args):
 		await client.say(trans)
 
 @client.command(pass_context=True)
-async def cat_encrypt(*args):
+async def cat_encrypt(ctx, *args):
 	output = ''
 	for word in args:
 		output += word
