@@ -486,8 +486,8 @@ async def cat_decrypt(ctx, *args):
 			if char in "!":
 				trans = trans + "n"
 			if char in "9":
-				trans = trans + "0"
-			if char in "o":
+				trans = trans + "o"
+			if char in "0":
 				trans = trans + "p"
 			if char in "4":
 				trans = trans + "r"
