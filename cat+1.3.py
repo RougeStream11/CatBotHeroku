@@ -529,8 +529,8 @@ async def cat_decrypt(ctx, *args):
 				trans = trans + "0"
 			if char in " ":
 				trans = trans + " "
-	print(trans)
-	await client.say(output)
+		print(trans)
+		await client.say(trans)
 
 		
 	 
