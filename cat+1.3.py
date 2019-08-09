@@ -529,7 +529,7 @@ async def cat_decrypt(ctx, *args):
 				trans = trans + "9"
 			if char in "∆":
 				trans = trans + "0"
-			if char in "™":
+			if char in "^":
 				trans = trans + " "
 		print(trans)
 		await client.say(trans)
@@ -616,7 +616,7 @@ async def cat_encrypt(ctx, *args):
 			if char in "0":
 				trans = trans + "∆"
 			if char in " ":
-				trans = trans + "™"
+				trans = trans + "^"
 		print(trans)
 		await client.say(trans)
 	 
