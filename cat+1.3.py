@@ -507,6 +507,8 @@ async def cat_decrypt(ctx, *args):
 				trans = trans + "w"
 			if char in "6":
 				trans = trans + "y"
+			if char in "\"":
+				trans = trans + "x"
 			if char in "~":
 				trans = trans + "1"
 			if char in "`":
@@ -591,6 +593,8 @@ async def cat_encrypt(ctx, *args):
 				trans = trans + "2"
 			if char in "yY":
 				trans = trans + "6"
+			if char in "xX":
+				 trans = trans + "\""
 			if char in "1":
 				trans = trans + "~"
 			if char in "2":
