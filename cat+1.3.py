@@ -449,7 +449,7 @@ async def clear(ctx, amount=5):
     await client.say('messages were deleted')
 
 @client.command(pass_context=True)
-def cat_decrypt(*args):
+def cat_decrypt(ctx, *args):
 	output = ''
 	for word in args:
 		output += word
