@@ -465,7 +465,7 @@ async def cat_decrypt(ctx, *args):
 				trans = trans + "c"
 			if char in "$":
 				trans = trans + "d"
-			if  char in "3":
+			if char in "3":
 				trans = trans + "e"
 			if char in "_":
 				trans = trans + "f"
@@ -485,9 +485,9 @@ async def cat_decrypt(ctx, *args):
 				trans = trans + "m"
 			if char in "!":
 				trans = trans + "n"
-			if  char in "9":
+			if char in "9":
 				trans = trans + "0"
-			if char in "0":
+			if char in "o":
 				trans = trans + "p"
 			if char in "4":
 				trans = trans + "r"
@@ -549,7 +549,7 @@ async def cat_encrypt(ctx, *args):
 				trans = trans + "\'"
 			if char in "dD":
 				trans = trans + "$"
-			if  char in "eE":
+			if char in "eE":
 				trans = trans + "3"
 			if char in "fF":
 				trans = trans + "_"
@@ -569,7 +569,7 @@ async def cat_encrypt(ctx, *args):
 				trans = trans + "?"
 			if char in "nN":
 				trans = trans + "!"
-			if  char in "oO":
+			if char in "oO":
 				trans = trans + "9"
 			if char in "pP":
 				trans = trans + "0"
