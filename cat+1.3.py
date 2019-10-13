@@ -366,15 +366,19 @@ async def echo(*args):
 async def spam(ctx, *args):
 	id = ["480809552204529665", "485143529908207691", "404373941373632513", "336180549192515585"]
 	id2 = ctx.message.author.id	
+	content = ctx.message.content
 	if id2 in id:
-		output = ''
-		for word in args:
-			output += word
-			output += ' '
-			while True:
-				await client.say(output)
+		if id in content:
+			await client.say('Sorry, but you dont have permission to run that command.')
+		else:
+			output = ''
+			for word in args:
+				output += word
+				output += ' '
+				while True:
+					await client.say(output)
 	else:
-		await client.say('Sorry, but you dont have permission to run that command')
+		await client.say('Sorry, but you dont have permission to run that command.')
 
 @client.command()
 async def md5(*args):
