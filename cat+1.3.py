@@ -368,15 +368,16 @@ async def spam(ctx, *args):
 	id2 = ctx.message.author.id	
 	content = ctx.message.content
 	content2 = str(content)
-	if id2 in id:
-		if id in content2:
-			await client.say('Sorry, but you dont have permission to run that command.')
-		else:
-			output = ''
-			for word in args:
-				output += word
-				output += ' '
-				while True:
+	print(content)
+	#if id2 in id:
+		#if id in content2:
+			#await client.say('Sorry, but you dont have permission to run that command.')
+		#else:
+			#output = ''
+			#for word in args:
+				#output += word
+				#output += ' '
+				#while True:
 					await client.say(output)
 	else:
 		await client.say('Sorry, but you dont have permission to run that command.')
