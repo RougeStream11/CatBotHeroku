@@ -378,7 +378,7 @@ async def spam(ctx, *args):
 				#output += word
 				#output += ' '
 				#while True:
-					await client.say(output)
+					#await client.say(output)
 	else:
 		await client.say('Sorry, but you dont have permission to run that command.')
 
