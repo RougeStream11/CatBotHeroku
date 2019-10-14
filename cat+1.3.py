@@ -373,7 +373,7 @@ async def spam(ctx, *args):
 	print(id2)
 	print(id)
 	if id2 in id:
-		if content in id:
+		if id in content:
 			await client.say('Sorry, but you dont have permission to run that command.')
 		else:
 			output = ''
