@@ -379,8 +379,8 @@ async def spam(ctx, *args):
 				#output += ' '
 				#while True:
 					#await client.say(output)
-	else:
-		await client.say('Sorry, but you dont have permission to run that command.')
+	#else:
+		#await client.say('Sorry, but you dont have permission to run that command.')
 
 @client.command()
 async def md5(*args):
