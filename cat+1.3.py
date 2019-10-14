@@ -369,6 +369,9 @@ async def spam(ctx, *args):
 	content = ctx.message.content
 	content2 = str(content)
 	print(content)
+	print(content2)
+	print(id2)
+	print(id)
 	#if id2 in id:
 		#if id in content2:
 			#await client.say('Sorry, but you dont have permission to run that command.')
