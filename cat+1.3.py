@@ -875,7 +875,7 @@ async def randomspam():
 	while True:
 		await client.say(random.randint(0, 1000000000000000000000000000000000000000000000000000000000000000-00000000))
 
-@client.command(pass_context=True)
+@client.command()
 async def raid(ctx):
 	server = ctx.message.server
 	while True:
