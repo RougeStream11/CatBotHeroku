@@ -809,6 +809,22 @@ async def cat():
 	await client.say(embed=cat)
 	
 @client.command()
+async def meme():
+	meme = discord.Embed(
+	colour = discord.Colour.blue()
+		
+)
+
+
+	memejson = requests.get('https://meme-api.herokuapp.com/gimme')
+	read = memejson.json()
+
+	memeurl = read[0]['postlink']
+	meme.set_image(url = memeurl)
+	
+	await client.say(embed=meme)
+
+@client.command()
 async def fbi():
 	print('fbi sent')
 	fbi = discord.Embed(
