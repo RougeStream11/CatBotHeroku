@@ -652,6 +652,7 @@ async def ncovinfo():
 		await client.say('New deaths: ' + output['new_deaths'])
 		await client.say('New cases: ' + output['new_cases'])
 		await client.say('Serious or critical cases: ' + output['serious_critical'])
+		await client.say('** **')
 
 @client.command(pass_context=True)
 async def help(ctx):
