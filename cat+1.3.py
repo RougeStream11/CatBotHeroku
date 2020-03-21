@@ -629,7 +629,7 @@ async def cat_encrypt(ctx, *args):
 				trans = trans + "^"
 		print(trans)
 		await client.say(trans)
-@client.command(pass_context=True)
+@client.command()
 async def ncovinfo():
 	url = "https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_country.php" 
 	headers = { 
