@@ -819,7 +819,7 @@ async def meme():
 	memejson = requests.get('https://meme-api.herokuapp.com/gimme')
 	read = memejson.json()
 
-	memeurl = read[0]['url']
+	memeurl = read['url']
 	meme.set_image(url = memeurl)
 	
 	await client.say(embed=meme)
