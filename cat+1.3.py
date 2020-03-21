@@ -87,7 +87,7 @@ catfacts = ["Unlike dogs, cats do not have a sweet tooth. Scientists believe thi
 "Approximately 1/3 of cat owners think their pets are able to read their minds.",
 "A commemorative tower was built in Scotland for a cat named Towser, who caught nearly 30,000 mice in her lifetime.",
 "In the 1750s, Europeans introduced cats into the Americas to control pests.",
-"The first cat show was organized in 1871 in London. Cat shows later became a worldwide craze.",
+"The first cat show was organized in 1871 I London. Cat shows later became a worldwide craze.",
 "The first cartoon cat was Felix the Cat in 1919. In 1940, Tom and Jerry starred in the first theatrical cartoon “Puss Gets the Boot.” In 1981 Andrew Lloyd Weber created the musical Cats, based on T.S. Eliot’s Old Possum’s Book of Practical Cats.",
 "The normal body temperature of a cat is between 100.5 ° and 102.5 °F. A cat is sick if its temperature goes below 100 ° or above 103 °F.",
 "A cat has 230 bones in its body. A human has 206. A cat has no collarbone, so it can fit through any opening the size of its head.",
@@ -640,7 +640,7 @@ async def virusinfo():
 	response = requests.request("GET", url, headers=headers)
 
 	a = -1
-	for x in range(0,184):
+	for x in range(0,4):
 		a = a + 1
 		output = response.json()['countries_stat'][a]
 
