@@ -630,7 +630,7 @@ async def cat_encrypt(ctx, *args):
 		print(trans)
 		await client.say(trans)
 @client.command()
-async def virusinfo():
+async def ncovinfo():
 	url = "https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_country.php" 
 	headers = { 
 	'x-rapidapi-host': "coronavirus-monitor.p.rapidapi.com",
@@ -640,18 +640,18 @@ async def virusinfo():
 	response = requests.request("GET", url, headers=headers)
 
 	a = -1
-	for x in range(0,4):
+	for x in range(0,184):
 		a = a + 1
 		output = response.json()['countries_stat'][a]
 
-		client.say('Country: ' + output['country_name'])
-		client.say('Cases: ' + output['cases'])		
-		client.say('Deaths: '+ output['deaths'])
-		client.say('Region: ' +output['region'])
-		client.say('Total recoveries: ' + output['total_recovered'])
-		client.say('New deaths: ' + output['new_deaths'])
-		client.say('New cases: ' + output['new_cases'])
-		client.say('Serious or critical cases: ' + output['serious_critical'])
+		await client.say('Country: ' + output['country_name'])
+		await client.say('Cases: ' + output['cases'])		
+		await client.say('Deaths: '+ output['deaths'])
+		await client.say('Region: ' +output['region'])
+		await client.say('Total recoveries: ' + output['total_recovered'])
+		await client.say('New deaths: ' + output['new_deaths'])
+		await client.say('New cases: ' + output['new_cases'])
+		await client.say('Serious or critical cases: ' + output['serious_critical'])
 
 @client.command(pass_context=True)
 async def help(ctx):
