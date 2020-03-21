@@ -629,7 +629,29 @@ async def cat_encrypt(ctx, *args):
 				trans = trans + "^"
 		print(trans)
 		await client.say(trans)
-	 
+@client.command()
+async def ncovinfo():
+	url = "https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_country.php" 
+headers = { 
+	'x-rapidapi-host': "coronavirus-monitor.p.rapidapi.com",
+	'x-rapidapi-key': "3c9bbac4b6mshf44d4b99ed0e0c2p19296bjsnb0fe992faac7"
+	}
+	
+response = requests.request("GET", url, headers=headers)
+
+a = -1
+for x in range(0,184):
+	a = a + 1
+	output = response.json()['countries_stat'][a]
+
+	client.say('Country: ' + output['country_name'])
+	client.say('Cases: ' + output['cases'])		
+	client.say('Deaths: '+ output['deaths'])
+	client.say('Region: ' +output['region'])
+	client.say('Total recoveries: ' + output['total_recovered'])
+	client.say('New deaths: ' + output['new_deaths'])
+	client.say('New cases: ' + output['new_cases'])
+	client.say('Serious or critical cases: ' + output['serious_critical'])
 
 @client.command(pass_context=True)
 async def help(ctx):
