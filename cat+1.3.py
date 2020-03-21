@@ -630,7 +630,7 @@ async def cat_encrypt(ctx, *args):
 		print(trans)
 		await client.say(trans)
 @client.command()
-async def ncovinfo():
+async def virusinfo():
 	url = "https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_country.php" 
 	headers = { 
 	'x-rapidapi-host': "coronavirus-monitor.p.rapidapi.com",
