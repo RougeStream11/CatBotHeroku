@@ -451,12 +451,13 @@ async def blake2b(*args):
 	
 @client.command(pass_context=True)
 async def clear(ctx, amount=5):
-    channel = ctx.message.channel
-    messages = []
-    async for message in client.logs_from(channel, limit=int(amount)):
-        messages.append(message)
-    await client.delete_messages(messages);
-    await client.say('messages were deleted')
+	if ctx.message.author.server_permissions.administrator:
+		async for message in client.logs_from(channel, limit=int(amount+1)):
+		messages.append(message)
+		await client.delete_messages(messages);
+		await client.say('messages were deleted')
+	else:
+		await client.say("you haven't got permission to run this command")
 
 @client.command(pass_context=True)
 async def cat_decrypt(ctx, *args):
