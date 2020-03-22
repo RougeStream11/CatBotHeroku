@@ -454,7 +454,7 @@ async def clear(ctx, amount=5):
 	if ctx.message.author.server_permissions.administrator:
 		channel = ctx.message.channel
 		messages = []
-		async for message in client.logs_from(channel, limit=int(amount+1)):
+		async for message in client.logs_from(channel, limit=int(amount)):
 			messages.append(message)
 			await client.delete_messages(messages)
 			await client.say('messages were deleted')
