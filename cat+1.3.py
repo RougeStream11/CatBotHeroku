@@ -452,6 +452,7 @@ async def blake2b(*args):
 @client.command(pass_context=True)
 async def clear(ctx, amount=5):
 	if ctx.message.author.server_permissions.administrator:
+		channel = ctx.message.channel
 		async for message in client.logs_from(channel, limit=int(amount+1)):
 			messages.append(message)
 			await client.delete_messages(messages)
