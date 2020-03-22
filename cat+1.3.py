@@ -456,8 +456,7 @@ async def clear(ctx, amount=5):
 		messages = []
 		async for message in client.logs_from(channel, limit=int(amount)):
 			messages.append(message)
-			await client.delete_messages(messages)
-			await client.say('messages were deleted')
+		await client.delete_messages(messages)
 	else:
 		await client.say("you haven't got permission to run this command")
 
