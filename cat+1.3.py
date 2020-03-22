@@ -453,9 +453,9 @@ async def blake2b(*args):
 async def clear(ctx, amount=5):
 	if ctx.message.author.server_permissions.administrator:
 		async for message in client.logs_from(channel, limit=int(amount+1)):
-		messages.append(message)
-		await client.delete_messages(messages);
-		await client.say('messages were deleted')
+			messages.append(message)
+			await client.delete_messages(messages)
+			await client.say('messages were deleted')
 	else:
 		await client.say("you haven't got permission to run this command")
 
