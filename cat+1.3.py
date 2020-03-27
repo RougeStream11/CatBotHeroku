@@ -821,7 +821,7 @@ async def meme():
 	memejson = requests.get('https://meme-api.herokuapp.com/gimme')
 	read = memejson.json()
 	subredit = read['subreddit']
-	Title = read['title']
+	title = read['title']
 	memeurl = read['url']
 	meme.set_image(url = memeurl)
 	meme.set_footer(text='This meme is from {} subreddit. The post title is {}.'.format(subredit, title))
