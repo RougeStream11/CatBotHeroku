@@ -788,8 +788,10 @@ async def dog():
 	colour = discord.Colour.blue()
 		
 )
-	
-	dog.set_image(url='https://cdn.discordapp.com/emojis/511242565664768005.png?v=1')
+	request = requests.get('https://dog.ceo/api/breeds/image/random')
+	jsondict = request.json()
+	dogurl = jsondict['message']
+	dog.set_image(url=dogurl)
 	
 	await client.say(embed=dog)
 	
