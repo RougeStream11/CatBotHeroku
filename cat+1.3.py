@@ -824,7 +824,7 @@ async def meme():
 	title = read['title']
 	memeurl = read['url']
 	meme.set_image(url = memeurl)
-	meme.set_footer(text='This meme is from ***{}*** subreddit. The post title is ***{}***.'.format(subredit, title))
+	meme.set_footer(text='This meme is from \'{}\' subreddit. The post title is \'{}\'.'.format(subredit, title))
 	
 	await client.say(embed=meme)
 
