@@ -817,12 +817,14 @@ async def meme():
 		
 )
 
-
+#{"postLink":"https://redd.it/fpdois","subreddit":"meirl","title":"Meirl","url":"https://i.redd.it/7r7z081ze1p41.jpg"}
 	memejson = requests.get('https://meme-api.herokuapp.com/gimme')
 	read = memejson.json()
-
+	subredit = read['subreddit']
+	Title = read['title']
 	memeurl = read['url']
 	meme.set_image(url = memeurl)
+	meme.set_footer(text='This meme is from {} subreddit. The post title is {}.'.format(subredit, title))
 	
 	await client.say(embed=meme)
 
