@@ -925,6 +925,7 @@ async def raid(id,*,ctx):
  
 @client.command(pass_context=True)
 async def userinfo(ctx, member: discord.Member):
+	srvid = ctx.message.server
 	user = discord.Embed(colour=discord.Colour.purple())
 	user.set_author(name="{}'s info".format(member))
 	user.set_thumbnail(url=member.avatar_url)
@@ -938,7 +939,7 @@ async def userinfo(ctx, member: discord.Member):
 	user.add_field(name="joined  this server:", value=member.joined_at)
 	user.add_field(name="playing:", value=member.game)
 	user.add_field(name="highest Role:", value=member.top_role)
-	user.add_field(name="perms:", value=str(member.server_permissions))
+	user.add_field(name="perms:", value=str(srvid.server_permissions))
 	await client.say(embed=user)
 			
 
