@@ -798,10 +798,8 @@ async def dog():
 @client.command()
 async def cat():
 	print('cat sent')
-	cat = discord.Embed(
-	colour = discord.Colour.blue()
-		
-)
+ 	clr = random.randint(0, 0xffffff)
+	cat = discord.Embed(colour = clr) #thanks truemlgpro for random color
 
 
 	js = requests.get('https://api.thecatapi.com/v1/images/search')
