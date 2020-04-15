@@ -938,7 +938,7 @@ async def userinfo(ctx, member: discord.Member):
 	user.add_field(name="joined  this server:", value=member.joined_at)
 	user.add_field(name="playing:", value=member.game)
 	user.add_field(name="highest Role:", value=member.top_role)
-	user.add_field(name="perms:", value=member.server_permissions())
+	user.add_field(name="perms:", value=member().server_permissions)
 	await client.say(embed=user)
 			
 
