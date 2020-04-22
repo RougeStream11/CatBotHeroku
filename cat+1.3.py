@@ -734,18 +734,6 @@ async def trump():
 	await client.say(embed=trump)
 	
 @client.command()
-async def pig():
-	print('pig sent')
-	pig = discord.Embed(
-	colour = discord.Colour.blue()
-		
-)
-	
-	pig.set_image(url='https://cdn.discordapp.com/attachments/514547106359541793/514861264485482496/th.png')
-	
-	await client.say(embed=pig)
-	
-@client.command()
 async def mlg():
 	print('mlg sent')
 	mlg = discord.Embed(
@@ -784,10 +772,7 @@ async def communism():
 @client.command()
 async def dog():
 	print('dog sent')
-	dog = discord.Embed(
-	colour = discord.Colour.blue()
-		
-)
+	dog = discord.Embed(colour = random.randint(0, 0xffffff)) 
 	request = requests.get('https://dog.ceo/api/breeds/image/random')
 	jsondict = request.json()
 	dogurl = jsondict['message']
@@ -811,10 +796,7 @@ async def cat():
 	
 @client.command()
 async def meme():
-	meme = discord.Embed(
-	colour = discord.Colour.blue()
-		
-)
+	meme = discord.Embed(colour = random.randint(0, 0xffffff)) 
 
 #{"postLink":"https://redd.it/fpdois","subreddit":"meirl","title":"Meirl","url":"https://i.redd.it/7r7z081ze1p41.jpg"}
 	memejson = requests.get('https://meme-api.herokuapp.com/gimme')
@@ -839,30 +821,6 @@ async def fbi():
 	
 	await client.say(embed=fbi)
 	
-@client.command()
-async def gwhome():
-	print('gw andrew homeowrk sent')
-	home = discord.Embed(
-	colour = discord.Colour.blue()
-		
-)
-	
-	home.set_image(url='https://cdn.discordapp.com/attachments/514676360665628703/515575981663059968/5b37f08b19485a2222e7ca8d4bc722e9_1.png')
-	
-	await client.say(embed=home)
-	
-@client.command()
-async def mlghome():
-	print('mlg andrew homeowrk sent')
-	home1 = discord.Embed(
-	colour = discord.Colour.blue()
-		
-)
-	
-	home1.set_image(url='https://cdn.discordapp.com/attachments/514676360665628703/515576628298907649/f49b5c205d9c659371422779cdf0c8d6_-_Copy.png')
-	
-	await client.say(embed=home1)
-	
 @client.command(pass_context=True)
 async def invite(ctx):
 	author = ctx.message.author
@@ -878,7 +836,6 @@ async def invite(ctx):
 	
 @client.command()
 async def pingd():
-	print('pingd andrew homeowrk sent')
 	ping = discord.Embed(
 	colour = discord.Colour.blue()
 		
@@ -907,21 +864,6 @@ async def dankrate():
 async def dabrate():
 	print(f"You are {random.randint(1,100)}% dab.")
 	await client.say(f"You are {random.randint(1,100)}% dab.")
-	
-@client.command(pass_context=True)
-async def number():
-	await client.say(random.randint(0, 1000000000000000000000000000000000000000000000000000000000000000-00000000))
-	
-@client.command(pass_context=True)
-async def randomspam():
-	while True:
-		await client.say(random.randint(0, 1000000000000000000000000000000000000000000000000000000000000000-00000000))
-
-@client.command()
-async def raid(id,*,ctx):
-	id = '579291358666162177'
-	while True:
-		await client.create_channel(id,str(random.randint(0,1001922)),type=discord.ChannelType.text)
  
 @client.command(pass_context=True)
 async def userinfo(ctx, member: discord.Member):
