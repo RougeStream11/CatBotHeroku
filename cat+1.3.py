@@ -241,7 +241,7 @@ async def on_message(message):
 async def ping(ctx):
     resp = await client.say('pong')
     diff = resp.timestamp - ctx.message.timestamp
-    await client.say('Ping is {}ms'.format(diff*1000))
+    await client.say('Ping is {}ms'.format(1000*diff))
 
 @client.command()
 async def echo(*args):
