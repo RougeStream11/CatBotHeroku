@@ -15,8 +15,6 @@ client = commands.Bot(command_prefix = '%')
 client.remove_command('help')
 status  = ["Cat Bot V1.3", "Running on heroku", "Prefix is %"]
 
-players = {}
-
 catfacts = ["Unlike dogs, cats do not have a sweet tooth. Scientists believe this is due to a mutation in a key taste receptor",
 "When a cat chases its prey, it keeps its head level. Dogs and humans bob their heads up and down",
 "The technical term for a cat’s hairball is a bezoar",
@@ -219,8 +217,6 @@ dogfacts = ["All dogs can be traced back 40 million years ago to a weasel-like a
 "One kind of Pekingese is referred to as a “sleeve” because it was bred to fit into a Chinese empress’ sleeves, which was how it was often carried around.",
 "A group of pugs is called a 'grumble'."]
 
-
-
 async def status_change():
 	await client.wait_until_ready()
 	msg = cycle(status)
@@ -231,7 +227,6 @@ async def status_change():
 			await client.change_presence(game=discord.Game(name=current_status, type = 1))
 			await asyncio.sleep(10)
 			
-			
 @client.event
 async def on_ready():
 	print('cat working')
@@ -241,118 +236,12 @@ async def on_ready():
 @client.event
 async def on_message(message):
 	await client.process_commands(message)
-	author = message.author
-	content = message.content
-	server = message.server
-	channel = message.channel
-	id = message.author.id
-	print('{}: {}: {}: {}: {} '.format(server, channel, author, id, content))
-	
-	if message.content.upper() == "HELLO":
-		print('Sending reply ( Привет ) ')
-		await client.send_message(message.channel, "Привет")
-		
-	if "OOF" in message.content.upper():
-			print('sending reply, ( roblex )')
-			await client.send_message(message.channel, 'Roblex died')
-		
-	if "FOO" in message.content.upper():
-			print('Sending reply ( borlex )')
-			await client.send_message(message.channel, "deiD xelboR")
-	
-	if "OWO" in message.content.upper():
-		print('sending firry')
-		await client.send_message(message.channel, "Are you a furry")
-			
-	if message.content.startswith('hey'):
-		msg = 'hello {0.author.mention}'.format(message)
-		await client.send_message(message.channel, msg)
-	
-	#disabling leveling system because it cant edit users.json
-	
-	#with open('users.json', 'r') as f:
-		#users = json.load(f)
-		
-		#await update_data(users, message.author)
-		#await add_experience(users, message.author, 10)
-		#await level_up(users, message.author, message.channel)
-		
-	#with open('users.json', 'w') as f:
-		#json.dump(users, f)
-		
-	#with open('log.txt', 'a') as f:
-		#server = message.server
-		#channel = message.channel
-		#author = message.author
-		#content = message.content
-		#f.write('{} {} {} {}'.format(server, channel, author, content))
-		#f.write('\n')
-	
-
-#async def update_data(users, user):
-	#if not user.id in users:
-		#users[user.id] = {}
-		#print(type(users))
-		#users[user.id]['experience'] = 0
-		#users[user.id]['level'] = 1
-		
-#async def add_experience(users, user, exp):
-	#users[user.id]['experience'] += exp
-
-#async def level_up(users, user, channel):
-	#experience = users[user.id]['experience']
-	#lvl_start = users[user.id]['level']
-	#lvl_end = int(experience ** (1/4))
-	
-	#if lvl_start < lvl_end:
-		#await client.send_message(channel, '{} has leveled up to level {}'.format(user.mention, lvl_end))
-		#users[user.id]['level'] = lvl_end
-	
-		
-		
-@client.command(pass_context = True)
-async def count(ctx):
-	
-	id = ["480809552204529665", "485143529908207691", "404373941373632513", "336180549192515585"]
-	id2 = ctx.message.author.id
-	if id2 in id: 
-		a = 0
-		for i in range(0, 100000000):
-			a = a + 1
-			print(a)
-			await client.say(a)
-	else:
-		await client.say('Sorry, but you dont have permission to run that command')
 
 @client.command(pass_context = True)
 async def ping(ctx):
     resp = await client.say('pong')
     diff = resp.timestamp - ctx.message.timestamp
-    await client.say(f'Responsed in {1000*diff.total_seconds():.1f}ms.')
-
-@client.command()
-async def nyan():
-	await client.say('▒▒▒▒▒▒▒▒█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█')
-	await client.say('▒▒▒▒▒▒▒█░▒▒▒▒▒▒▒▓▒▒▓▒▒▒▒▒▒▒░█')
-	await client.say('▒▒▒▒▒▒▒█░▒▒▓▒▒▒▒▒▒▒▒▒▄▄▒▓▒▒░█░▄▄')
-	await client.say('▒▒▄▀▀▄▄█░▒▒▒▒▒▒▓▒▒▒▒█░░▀▄▄▄▄▄▀░░█')
-	await client.say('▒▒█░░░░█░▒▒▒▒▒▒▒▒▒▒▒█░░░░░░░░░░░█')
-	await client.say('▒▒▒▀▀▄▄█░▒▒▒▒▓▒▒▒▓▒█░░░██░░░░██░░█')
-	await client.say('▒▒▒▒▒▒▒█░▒▓▒▒▒▒▓▒▒▒█░░░░░░░▀░░░░░█')
-	await client.say('▒▒▒▒▒▄▄█░▒▒▒▓▒▒▒▒▒▒▒█░░█▄▄█▄▄█░░█')
-	await client.say('▒▒▒▒█░░░█▄▄▄▄▄▄▄▄▄▄█░█▄▄▄▄▄▄▄▄▄█')
-	await client.say('▒▒▒▒█▄▄█░░█▄▄█░░░░░░█▄▄█░░█▄▄█')
-
-@client.command(pass_context = True)
-async def test(ctx):
-	id = ["480809552204529665", "485143529908207691", "336180549192515585", "404373941373632513"]
-	id2 = ctx.message.author.id
-	if id2 in id:
-		print('run command')
-		await client.say('allowed')
-	else:
-		print('dont run command')
-		await client.say('not allowed')
+    await client.say('Ping is {}ms'.format(diff*1000))
 
 @client.command()
 async def echo(*args):
@@ -362,29 +251,6 @@ async def echo(*args):
         output += ' '
     await client.say(output)
     
-@client.command(pass_context = True)
-async def spam(ctx, *args):
-	id = ["480809552204529665", "485143529908207691", "404373941373632513", "336180549192515585"]
-	id2 = ctx.message.author.id	
-	content = ctx.message.content
-	content2 = str(content)
-	print(content)
-	print(content2)
-	print(id2)
-	print(id)
-	print(ctx.mentions)
-	#if id2 in id:
-		#if id in content:
-			#await client.say('Sorry, but you dont have permission to run that command.')
-		#else:
-			#output = ''
-			#for word in args:
-				#output += word
-				#output += ' '
-				#while True:
-					#await client.say(output)
-	#else:
-		#await client.say('Sorry, but you dont have permission to run that command.')
 
 @client.command()
 async def md5(*args):
@@ -460,315 +326,17 @@ async def clear(ctx, amount=5):
 	else:
 		await client.say("you haven't got permission to run this command")
 
-@client.command(pass_context=True)
-async def cat_decrypt(ctx, *args):
-	output = ''
-	for word in args:
-		output += word
-		output += ' '	
-		trans = ""
-		text = output
-		for char in text:
-			if char  in "@":
-				trans = trans + "a"
-			if char in ";":
-				trans = trans + "b"
-			if char in "\'":
-				trans = trans + "c"
-			if char in "$":
-				trans = trans + "d"
-			if char in "3":
-				trans = trans + "e"
-			if char in "_":
-				trans = trans + "f"
-			if char in "&":
-				trans = trans + "g"
-			if char in "-":
-				trans = trans + "h"
-			if char in "8":
-				trans = trans + "i"
-			if char in "+":
-				trans = trans + "j"
-			if char in "(":
-				trans = trans + "k"
-			if char in ")":
-				trans = trans + "l"
-			if char in "?":
-				trans = trans + "m"
-			if char in "!":
-				trans = trans + "n"
-			if char in "9":
-				trans = trans + "o"
-			if char in "0":
-				trans = trans + "p"
-			if char in "4":
-				trans = trans + "r"
-			if char in "#":
-				trans = trans + "s"
-			if char in "5":
-				trans = trans + "t"
-			if char in "7":
-				trans = trans + "u"
-			if char in ":":
-				trans = trans + "v"
-			if char in "*":
-				trans = trans + "z"
-			if char in "1":
-				trans = trans + "q"
-			if char in "2":
-				trans = trans + "w"
-			if char in "6":
-				trans = trans + "y"
-			if char in "°":
-				trans = trans + "x"
-			if char in "~":
-				trans = trans + "1"
-			if char in "`":
-				trans = trans + "2"
-			if char in "|":
-				trans = trans + "3"
-			if char in "•":
-				trans = trans + "4"
-			if char in "√":
-				trans = trans + "5"
-			if char in "π":
-				trans = trans + "6"
-			if char in "÷":
-				trans = trans + "7"
-			if char in "×":
-				trans = trans + "8"
-			if char in "¶":
-				trans = trans + "9"
-			if char in "∆":
-				trans = trans + "0"
-			if char in "^":
-				trans = trans + " "
-		print(trans)
-		await client.say(trans)
 
-@client.command(pass_context=True)
-async def cat_encrypt(ctx, *args):
-	output = ''
-	for word in args:
-		output += word
-		output += ' '	
-		trans = ""
-		text = output
-		for char in text:
-			if char  in "aA":
-				trans = trans + "@"
-			if char in "bB":
-				trans = trans + ";"
-			if char in "cC":
-				trans = trans + "\'"
-			if char in "dD":
-				trans = trans + "$"
-			if char in "eE":
-				trans = trans + "3"
-			if char in "fF":
-				trans = trans + "_"
-			if char in "gG":
-				trans = trans + "&"
-			if char in "hH":
-				trans = trans + "-"
-			if char in "iI":
-				trans = trans + "8"
-			if char in "jJ":
-				trans = trans + "+"
-			if char in "kK":
-				trans = trans + "("
-			if char in "lL":
-				trans = trans + ")"
-			if char in "mM":
-				trans = trans + "?"
-			if char in "nN":
-				trans = trans + "!"
-			if char in "oO":
-				trans = trans + "9"
-			if char in "pP":
-				trans = trans + "0"
-			if char in "rR":
-				trans = trans + "4"
-			if char in "sS":
-				trans = trans + "#"
-			if char in "tT":
-				trans = trans + "5"
-			if char in "uU":
-				trans = trans + "7"
-			if char in "vV":
-				trans = trans + ":"
-			if char in "zZ":
-				trans = trans + "*"
-			if char in "qQ":
-				trans = trans + "1"
-			if char in "wW":
-				trans = trans + "2"
-			if char in "yY":
-				trans = trans + "6"
-			if char in "xX":
-				 trans = trans + "°"
-			if char in "1":
-				trans = trans + "~"
-			if char in "2":
-				trans = trans + "`"
-			if char in "3":
-				trans = trans + "|"
-			if char in "4":
-				trans = trans + "•"
-			if char in "5":
-				trans = trans + "√"
-			if char in "6":
-				trans = trans + "π"
-			if char in "7":
-				trans = trans + "÷"
-			if char in "8":
-				trans = trans + "×"
-			if char in "9":
-				trans = trans + "¶"
-			if char in "0":
-				trans = trans + "∆"
-			if char in " ":
-				trans = trans + "^"
-	print(trans)
-	await client.say(trans)
-@client.command()
-async def ncovinfo():
-	url = "https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_country.php" 
-	headers = { 
-	'x-rapidapi-host': "coronavirus-monitor.p.rapidapi.com",
-	'x-rapidapi-key': "3c9bbac4b6mshf44d4b99ed0e0c2p19296bjsnb0fe992faac7"
-	}
-	
-	response = requests.request("GET", url, headers=headers)
-
-	a = -1
-	for x in range(0,184):
-		a = a + 1
-		output = response.json()['countries_stat'][a]
-
-		await client.say('Country: ' + output['country_name'])
-		await client.say('Cases: ' + output['cases'])		
-		await client.say('Deaths: '+ output['deaths'])
-		await client.say('Region: ' +output['region'])
-		await client.say('Total recoveries: ' + output['total_recovered'])
-		await client.say('New deaths: ' + output['new_deaths'])
-		await client.say('New cases: ' + output['new_cases'])
-		await client.say('Serious or critical cases: ' + output['serious_critical'])
-		await client.say('** **')
 
 @client.command(pass_context=True)
 async def help(ctx):
 	author = ctx.message.author
-
-
-	Help = discord.Embed(
-		colour = discord.Colour.blue()
-	)
+	Help = discord.Embed(colour = discord.Colour.blue())
 	Help.set_author(name='Help')
 	Help.add_field(name='Help', value='Here are the commands https://cat-bot-development.webnode.com/commands/', inline=False)
 	client.start_private_message(author)
 	await client.send_message(author, embed=Help)
 
-@client.command(pass_context=True)
-async def join(ctx):
-	await client.say('Python was not working so this command is deleted')
- #   channel = ctx.message.author.voice.voice_channel
-#    await client.join_voice_channel(channel)
-
-@client.command(pass_context=True)
-async def leave(ctx):
-	await client.say('Python was not working so this command is deleted')
-#    server = ctx.message.server
-#    voice_client = client.voice_client_in(server)
-#    await voice_client.disconnect()
-
-@client.command(pass_context=True)
-async def play(ctx): #url
-	await client.say('Python was not working so this command is deleted')
-#    server = ctx.message.server
-#    voice_client = client.voice_client_in(server)
-#    player = await voice_client.create_ytdl_player(url)
-#    players[server.id] = player
-#    player.start()
-
-@client.command(pass_context=True)
-async def pause(ctx):
-	await client.say('Python was not working so this command is deleted')
-#    id = ctx.message.server.id
-#    players[id].pause()
-
-@client.command(pass_context=True)
-async def stop(ctx):
-	await client.say('Python was not working so this command is deleted')
-#    id = ctx.message.server.id
-#    players[id].stop()
-
-@client.command(pass_context=True)
-async def resume(ctx):
-	await client.say('Python was not working so this command is deleted')
-#    id = ctx.message.server.id
-#    players[id].resume()
-
-@client.command()
-async def hmm():
-	print('hmmmm cat sent')
-	hmm = discord.Embed(
-	colour = discord.Colour.blue()
-		
-)
-	
-	hmm.set_image(url='https://cdn.discordapp.com/emojis/511248259004629002.png?v=1')
-	
-	await client.say(embed=hmm)
-	
-@client.command()
-async def trump():
-	print('Trum sent')
-	trump = discord.Embed(
-	colour = discord.Colour.blue()
-		
-)
-	
-	trump.set_image(url='https://cdn.discordapp.com/emojis/511241513980919819.png?v=1')
-	
-	await client.say(embed=trump)
-	
-@client.command()
-async def mlg():
-	print('mlg sent')
-	mlg = discord.Embed(
-	colour = discord.Colour.blue()
-		
-)
-	
-	mlg.set_image(url='https://cdn.discordapp.com/attachments/514676360665628703/514863402620026891/f49b5c205d9c659371422779cdf0c8d6.png')
-	
-	await client.say(embed=mlg)
-	
-@client.command()
-async def gw():
-	print('gw sent')
-	gw = discord.Embed(
-	colour = discord.Colour.blue()
-		
-)
-	
-	gw.set_image(url='https://cdn.discordapp.com/attachments/514676360665628703/514867137035370506/5b37f08b19485a2222e7ca8d4bc722e9.png')
-	
-	await client.say(embed=gw)
-	
-@client.command()
-async def communism():
-	print('communism sent')
-	com = discord.Embed(
-	colour = discord.Colour.blue()
-		
-)
-	
-	com.set_image(url='https://cdn.discordapp.com/attachments/514676484472963072/514891415998824459/com.jpg')
-	
-	await client.say(embed=com)
-	
 @client.command()
 async def dog():
 	print('dog sent')
@@ -777,28 +345,21 @@ async def dog():
 	jsondict = request.json()
 	dogurl = jsondict['message']
 	dog.set_image(url=dogurl)
-	
 	await client.say(embed=dog)
 	
 @client.command()
 async def cat():
 	print('cat sent')
 	cat = discord.Embed(colour = random.randint(0, 0xffffff)) #thanks truemlgpro for random color
-
-
 	js = requests.get('https://api.thecatapi.com/v1/images/search')
 	read = js.json()
-
 	caturl = read[0]['url']
 	cat.set_image(url = caturl)
-	
 	await client.say(embed=cat)
 	
 @client.command()
 async def meme():
 	meme = discord.Embed(colour = random.randint(0, 0xffffff)) 
-
-#{"postLink":"https://redd.it/fpdois","subreddit":"meirl","title":"Meirl","url":"https://i.redd.it/7r7z081ze1p41.jpg"}
 	memejson = requests.get('https://meme-api.herokuapp.com/gimme')
 	read = memejson.json()
 	subredit = read['subreddit']
@@ -806,44 +367,16 @@ async def meme():
 	memeurl = read['url']
 	meme.set_image(url = memeurl)
 	meme.set_footer(text='This meme is from \'{}\' subreddit. The post title is \'{}\'.'.format(subredit, title))
-	
 	await client.say(embed=meme)
 
-@client.command()
-async def fbi():
-	print('fbi sent')
-	fbi = discord.Embed(
-	colour = discord.Colour.blue()
-		
-)
-	
-	fbi.set_image(url='https://cdn.discordapp.com/attachments/495694461834100737/502507431776223242/FBI.gif')
-	
-	await client.say(embed=fbi)
-	
 @client.command(pass_context=True)
 async def invite(ctx):
 	author = ctx.message.author
-
-
-	Embed = discord.Embed(
-		colour = discord.Colour.blue()
-	)
+	Embed = discord.Embed(colour = discord.Colour.blue())
 	Embed.set_author(name='Invite Link')
 	Embed.add_field(name='Invite Link', value='Want to invite this bot to your server? if yes then here is the invite link : https://discordapp.com/api/oauth2/authorize?client_id=501070141866377236&permissions=8&scope=bot', inline=False)
 	client.start_private_message(author)
 	await client.send_message(author, embed=Embed)
-	
-@client.command()
-async def pingd():
-	ping = discord.Embed(
-	colour = discord.Colour.blue()
-		
-)
-	
-	ping.set_image(url='https://cdn.discordapp.com/attachments/412536528561242116/512346989091094528/everyone.gif')
-	
-	await client.say(embed=ping)
 	
 @client.command()
 async def catfact():
@@ -859,11 +392,6 @@ async def dogfact():
 async def dankrate():
 	print(f"You are {random.randint(1,100)}% dank.")
 	await client.say(f"You are {random.randint(1,100)}% dank.")
-	
-@client.command()
-async def dabrate():
-	print(f"You are {random.randint(1,100)}% dab.")
-	await client.say(f"You are {random.randint(1,100)}% dab.")
  
 @client.command(pass_context=True)
 async def userinfo(ctx, member: discord.Member):
@@ -884,22 +412,12 @@ async def userinfo(ctx, member: discord.Member):
 	user.add_field(name="perms:", value=str(member.server_permissions))
 	await client.say(embed=user)
 			
-
-
 @client.event
 async def on_member_join(member):
 	server = member.server
 	user = member
 	client.start_private_message(member)
 	await client.send_message(member, 'Welcome to {} {}'.format(server.name, user.mention))
-
-		#with open('users.json', 'r') as f:
-			#users = json.load(f)
-		
-		#await update_data(users, member)
-		
-		#with open('users.json', 'w') as f:
-			#json.dump(users, f)
 
 client.loop.create_task(status_change())						
 client.run(os.getenv('TOKEN'))
