@@ -221,7 +221,6 @@ async def status_change():
 	await client.wait_until_ready()
 	msg = cycle(status)
 	
-	
 	while not client.is_closed:
 			current_status = next(msg)
 			await client.change_presence(game=discord.Game(name=current_status, type = 1))
@@ -251,7 +250,6 @@ async def echo(*args):
         output += ' '
     await client.say(output)
     
-
 @client.command()
 async def md5(*args):
 	output = ''
@@ -325,8 +323,6 @@ async def clear(ctx, amount=5):
 		await client.delete_messages(messages)
 	else:
 		await client.say("you haven't got permission to run this command")
-
-
 
 @client.command(pass_context=True)
 async def help(ctx):
@@ -414,10 +410,8 @@ async def userinfo(ctx, member: discord.Member):
 			
 @client.event
 async def on_member_join(member):
-	server = member.server
-	user = member
 	client.start_private_message(member)
-	await client.send_message(member, 'Welcome to {} {}'.format(server.name, user.mention))
+	await client.send_message(member, 'Welcome to {} {}'.format(member.server.name, member.mention))
 
 client.loop.create_task(status_change())						
 client.run(os.getenv('TOKEN'))
