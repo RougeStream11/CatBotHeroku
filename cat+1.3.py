@@ -370,7 +370,7 @@ async def invite(ctx):
 	author = ctx.message.author
 	Embed = discord.Embed(colour = discord.Colour.blue())
 	Embed.set_author(name='Invite Link')
-	Embed.add_field(name='Invite Link', value='Want to invite this bot to your server? if yes then here is the invite link : https://discordapp.com/api/oauth2/authorize?client_id=501070141866377236&permissions=8&scope=bot', inline=False)
+	Embed.add_field(name='Invite Link', value='https://discordapp.com/api/oauth2/authorize?client_id=501070141866377236&permissions=8&scope=bot', inline=False)
 	client.start_private_message(author)
 	await client.send_message(author, embed=Embed)
 	
